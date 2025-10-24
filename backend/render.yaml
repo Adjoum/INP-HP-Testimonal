@@ -1,0 +1,15 @@
+services:
+  - type: web
+    name: backend
+    env: node
+    plan: free
+    region: frankfurt
+    buildCommand: cd backend && npm install && npm run build
+    startCommand: cd backend && npm start
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: MONGODB_URI
+        fromDatabase:
+          name: mongodb-uri
+          property: connectionString
