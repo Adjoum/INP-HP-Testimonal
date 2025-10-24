@@ -1,13 +1,15 @@
 import mongoose from 'mongoose';
-import dotenv from 'dotenv';
+//import dotenv from 'dotenv';
 
 // Charger les variables d'environnement
 //dotenv.config({ path: "../.env" });
-dotenv.config();
+if (process.env.NODE_ENV !== 'production') {
+  require('dotenv').config();
+} 
 
 const connectDB = async (): Promise<void> => {
   try {
-    const mongoURI = process.env.MONGODB_URI || 'mongodb://localhost:27017/inphb-stories';
+    const mongoURI = process.env.MONGODB_URI;
     
     await mongoose.connect(mongoURI);
 

@@ -2,14 +2,18 @@ import express, { Application, Request, Response } from 'express';
 import { createServer } from 'http';
 import { Server as SocketIOServer } from 'socket.io';
 import cors from 'cors';
-import dotenv from 'dotenv';
+//import dotenv from 'dotenv';
 import connectDB from './config/database';
 import authRoutes from './routes/authRoutes';
 import testimonialRoutes from './routes/testimonialRoutes';
 import commentRoutes from './routes/commentRoutes';
 
 // Charger les variables d'environnement
-dotenv.config({ path: "../.env" });
+//dotenv.config({ path: "../.env" });
+if (process.env.NODE_ENV !== 'production') {
+  require('dotenv').config();
+}  
+
 
 // Créer l'application Express
 const app: Application = express();
