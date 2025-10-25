@@ -1,11 +1,17 @@
 import mongoose from 'mongoose';
 
-require('dotenv').config();
+import dotenv from 'dotenv';
+
+// Charger les variables d'environnement seulement en développement
+if (process.env.NODE_ENV !== 'production') {
+  dotenv.config();
+}
 
 
 const connectDB = async (): Promise<void> => {
   try {
-    const mongoURI = process.env.MONGODB_URI;
+    // Vérifier que la variable existe
+    const mongoURI = process.env.MONGODB_URI || process.env.MONGODB_URL;
     
     await mongoose.connect(mongoURI);
 
