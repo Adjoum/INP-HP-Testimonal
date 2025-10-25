@@ -8,11 +8,8 @@ import authRoutes from './routes/authRoutes';
 import testimonialRoutes from './routes/testimonialRoutes';
 import commentRoutes from './routes/commentRoutes';
 
-// Charger les variables d'environnement
-//dotenv.config({ path: "../.env" });
-if (process.env.NODE_ENV !== 'production') {
-  require('dotenv').config();
-}  
+
+require('dotenv').config();
 
 
 // Créer l'application Express

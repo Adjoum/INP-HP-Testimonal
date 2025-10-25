@@ -3,7 +3,7 @@ import mongoose from 'mongoose';
 import jwt from 'jsonwebtoken';
 import User from '../models/User';
 import { AuthRequest } from '../middleware/auth';
-
+require('dotenv').config();
 
 // Générer un token JWT
 const generateToken = (id: string): string => {
