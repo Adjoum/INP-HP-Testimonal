@@ -21,7 +21,7 @@ const httpServer = createServer(app);
 // Configurer Socket.IO avec CORS
 const io = new SocketIOServer(httpServer, {
   cors: {
-    origin: process.env.FRONTEND_URL || 'https://inphb-stories.vercel.app' //'http://localhost:5173',
+    origin: process.env.FRONTEND_URL || 'https://inphb-stories.vercel.app', //'http://localhost:5173',
     methods: ['GET', 'POST'],
     credentials: true,
   },
@@ -29,7 +29,7 @@ const io = new SocketIOServer(httpServer, {
 
 // Middleware
 app.use(cors({
-  origin: process.env.FRONTEND_URL || 'https://inphb-stories.vercel.app' //'http://localhost:5173',
+  origin: process.env.FRONTEND_URL || 'https://inphb-stories.vercel.app', //'http://localhost:5173',
   credentials: true,
 }));
 app.use(express.json());
