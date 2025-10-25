@@ -1,5 +1,5 @@
 import React from 'react';
-import { GraduationCap, LogOut, User } from 'lucide-react';
+import { GraduationCap, LogOut } from 'lucide-react';
 import { useAuth } from '../../contexts/AuthContext';
 
 const Header: React.FC = () => {

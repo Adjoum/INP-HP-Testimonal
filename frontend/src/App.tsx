@@ -18,7 +18,7 @@ const AppContent: React.FC = () => {
     // Connecter Socket.IO si l'utilisateur est connecté
     if (user) {
       const socket = socketService.connect();
-      console.log('✅ Socket.IO connecté');
+      console.log('✅ Socket.IO connecté:' + socket);
       setCurrentPage('home'); //
       return () => {
         socketService.disconnect();
