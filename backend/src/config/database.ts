@@ -4,7 +4,7 @@ import dotenv from 'dotenv';
 
 // Charger les variables d'environnement seulement en développement
 if (process.env.NODE_ENV !== 'production') {
-  dotenv.config();
+  dotenv.config({ path: "../.env" });
 }
 
 
