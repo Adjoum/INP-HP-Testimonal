@@ -4,7 +4,7 @@ import dotenv from 'dotenv';
 
 // Charger les variables d'environnement seulement en développement
 if (process.env.NODE_ENV !== 'production') {
-  dotenv.config({ path: "../.env" });
+  dotenv.config();
 }
 
 
@@ -12,7 +12,13 @@ const connectDB = async (): Promise<void> => {
   try {
     // Vérifier que la variable existe
     const mongoURI = process.env.MONGODB_URI || process.env.MONGODB_URL;
+
+    // CETTE LIGNE EST ESSENTIELLE !
+    if (!mongoURI) {
+      throw new Error('❌ MONGODB_URI ou MONGODB_URL non définie dans les variables d\'environnement');
+    }
     
+    console.log('🔄 Tentative de connexion à MongoDB...');
     await mongoose.connect(mongoURI);
 
     console.log('✅ MongoDB connecté avec succès');
